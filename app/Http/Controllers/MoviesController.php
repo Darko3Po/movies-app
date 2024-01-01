@@ -14,11 +14,21 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $popular_movies = Http::withToken(config('services.tmdb.token'))->get('https://api.themoviedb.org/3/movie/popular')->json()['results'];
+        $popular_movies = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/popular')
+            ->json()['results'];
+
+        $genres_array = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/genre/movie/list')
+            ->json()['genres'];
+
+        $genres = collect($genres_array)->mapWithKeys(function ($genre){
+            return[$genre['id']=> $genre['name']];
+        });
 
         dump($popular_movies);
 
-        return view('index');
+        return view('index', compact('popular_movies','genres'));
     }
 
     /**
