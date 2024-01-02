@@ -23,7 +23,9 @@
                             <span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('D M Y')  }}</span>
                         </div>
                         <div class="text text-gray-400 text-sm">
-                            Action, Thriller, Comedy
+                           @foreach($movie['genre_ids'] as $genre)
+                                {{ $genres->get($genre) }} @if(!$loop->last),@endif
+                           @endforeach
                         </div>
                     </div>
                 </div>
