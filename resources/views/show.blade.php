@@ -15,16 +15,18 @@
                     <span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('D M Y')  }}</span>
                     <span class="mx-2">|</span>
                     <span class="mx-2">
-
+                        @foreach($movie['genres'] as $genre)
+                            {{ $genre['name'] }} @if(!$loop->last),@endif
+                        @endforeach
                     </span>
                 </div>
 
                 <p class="text-gray-300 mt-8">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aliquam distinctio dolorem earum est eveniet excepturi fugiat fugit labore magnam magni non odit omnis pariatur quisquam saepe, sequi, tempora velit voluptatibus? Commodi consectetur doloremque excepturi illum labore natus, pariatur placeat quaerat quibusdam sapiente? Corporis dolor porro possimus sed sequi.
+                    {{ $movie['overview']  }}
                 </p>
 
                 <div class="mt-12">
-                    <h4 class="text-white font-semibold"> Featured Cast</h4>
+                    <h4 class="text-white font-semibold"> Featured Crew</h4>
                     <div class="flex mt-4">
                         <div>
                             <div>Han Jin-won</div>
