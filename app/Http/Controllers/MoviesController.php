@@ -53,7 +53,8 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        return  view('actors');
     }
 
     /**
