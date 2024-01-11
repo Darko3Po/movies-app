@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movie App</title>
     <link rel="stylesheet" href="/css/main.css">
+    <livewire:styles />
 </head>
 <body class="font-sans bg-gray-900 text-white">
     {{--Navbar --}}
@@ -161,5 +162,6 @@
         </div>
     </footer>
 {{--    End footer section--}}
+ <livewire:scripts />
 </body>
 </html>
