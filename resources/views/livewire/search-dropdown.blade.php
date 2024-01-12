@@ -5,15 +5,12 @@
     </div>
     <div class="absolute bg-gray-800 rounded w-64 mt-4">
         <ul>
-            <li class="border-b border-gray-700 ">
-                <a href="#" class="block hover:bg-gray-700 px-3 py-3">{{ $search  }}</a>
-            </li>
-            <li class="border-b border-gray-700 ">
-                <a href="#" class="block hover:bg-gray-700 px-3 py-3">Avengers</a>
-            </li>
-            <li class="border-b border-gray-700 ">
-                <a href="#" class="block hover:bg-gray-700 px-3 py-3">Avengers</a>
-            </li>
+            {{--  Logic for the search frontend, where it outputs results based on the first 2 letters--}}
+            @foreach($searchResults as $result)
+                <li class="border-b border-gray-700 ">
+                    <a href="{{route('movies.show',$result['id'])}}" class="block hover:bg-gray-700 px-3 py-3">{{ $result['title']  }}</a>
+                </li>
+            @endforeach
         </ul>
     </div>
 </div>
