@@ -8,6 +8,7 @@
     <title>Movie App</title>
     <link rel="stylesheet" href="/css/main.css">
     <livewire:styles />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
 </head>
 <body class="font-sans bg-gray-900 text-white">
     {{--Navbar --}}
