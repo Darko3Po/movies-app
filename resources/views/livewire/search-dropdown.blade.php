@@ -8,6 +8,7 @@
             {{--  Logic for the search frontend, where it outputs results based on the first 2 letters--}}
             @foreach($searchResults as $result)
                 <li class="border-b border-gray-700 ">
+<<<<<<< HEAD
                     <a href="{{route('movies.show',$result['id'])}}"
                        class="block hover:bg-gray-700 px-3 py-3 flex items-center">
                         @if($result['poster_path'])
@@ -17,6 +18,9 @@
                         @endif
                        <span class="ml-4"> {{ $result['title']  }}</span>
                     </a>
+=======
+                    <a href="{{route('movies.show',$result['id'])}}" class="block hover:bg-gray-700 px-3 py-3">{{ $result['title']  }}</a>
+>>>>>>> 114067ddcf5ce0dd30af8f49bc886f3016e998b9
                 </li>
             @endforeach
         </ul>

@@ -8,13 +8,21 @@ use Livewire\Component;
 class SearchDropdown extends Component
 {
     /*
+<<<<<<< HEAD
       * This os logic for Search, data use API search form themoviedborg
       * */
+=======
+     * This os logic for Search, data use API search form themoviedborg
+     * */
+>>>>>>> 114067ddcf5ce0dd30af8f49bc886f3016e998b9
     public $search = '';
 
     public function render()
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 114067ddcf5ce0dd30af8f49bc886f3016e998b9
         $searchResults = [];
         /*
          * Logic for the search frontend, where it outputs results based on the first 2 letters
