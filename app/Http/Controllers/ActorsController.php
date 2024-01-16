@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ActorsViewModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class MoviesController extends Controller
+class ActorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,25 +15,13 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $popular_movies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/popular')
+        $popular_actors = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/person/popular')
             ->json()['results'];
 
-        $now_playing_movies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/now_playing')
-            ->json()['results'];
-
-        $genres_array = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/genre/movie/list')
-            ->json()['genres'];
-
-        $genres = collect($genres_array)->mapWithKeys(function ($genre){
-            return[$genre['id']=> $genre['name']];
-        });
-
-        //dump($now_playing_movies);
-
-        return view('index', compact('popular_movies','now_playing_movies','genres'));
+      // $viewModel = new ActorsViewModel($popular_actors);
+        dump($popular_actors);
+        return view('actors.index', compact('popular_actors') );
     }
 
     /**
@@ -53,8 +42,7 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        // Create Actors Controller
-       // return  view('actors');
+        //
     }
 
     /**
@@ -65,15 +53,7 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        //  Use API endpoints for show movie
-        $movie= Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
-            ->json();
-
-
-        //dump($movie);
-
-        return  view('show', compact('movie'));
+        //
     }
 
     /**
