@@ -45,7 +45,7 @@ class TvController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('tv.show');
     }
 
     /**
