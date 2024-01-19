@@ -30,7 +30,7 @@ class TvController extends Controller
             return[$genre['id']=> $genre['name']];
         });
 
-        dump($top_rated_tv);
+//        dump($top_rated_tv);
 
         return view('tv.index', compact('popular_tv','top_rated_tv','genres'));
 
